@@ -27,6 +27,7 @@ flutter:
   assets:
     - assets/fonts/Playfair.ttf
     - assets/icons/certified.svg
+    - assets/images/
 
   fonts:
     - family: Playfair

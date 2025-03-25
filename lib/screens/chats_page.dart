@@ -1,43 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:obeypay/widgets/nav_bar.dart';
 import '../widgets/text_styles.dart';
-import '../widgets/profile_card.dart';
+import '../widgets/chat_widget.dart';
 
-class DomProfilePage extends StatelessWidget {
-  const DomProfilePage({super.key});
+class ChatsPage extends StatelessWidget {
+  const ChatsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Column(
         children: [
           Expanded(
             flex: 3,
             child: Container(
+              height: screenHeight * 0.4,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/dom_profile.png"),
+                  image: AssetImage("assets/images/dom_chats.png"),
                   fit: BoxFit.cover,
                 ),
               ),
               child: Column(
                 children: [
-                  SizedBox(height: screenHeight * 0.12), 
+                  SizedBox(height: screenHeight * 0.06),
                   Text(
-                    'Goddess, Alexa',
+                    'Matches',
                     style: AppStyles.headingStyle(context),
                   ),
-                  ProfileCard(
+                  SizedBox(height: screenHeight * 0.045),
+                  ChatCard(
                     name: 'Alexa',
-                    age: '27',
-                    level: '7',
-                    balance: '200',
-                    weeklyEarnings: '2700',
-                    allTimeEarnings: '14000',
-                    description: 'Lorem ipsum',
+                    lastMessage: 'idk pig, pay and see',
                     imageUrl: 'assets/images/golddigger.png',
                   ),
+                  ChatCard(
+                    name: 'Alexa',
+                    lastMessage: 'idk pig, pay and see',
+                    imageUrl: 'assets/images/golddigger.png',
+                  ),
+                  NavBar(),
                 ],
               ),
             ),
