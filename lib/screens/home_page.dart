@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:obeypay/utils/notificationService.dart';
-import 'package:obeypay/widgets/user_card.dart';
+
+import '../utils/objects/user.dart';
+import '../widgets/user_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,10 +18,36 @@ class HomePage extends StatelessWidget {
       accentColor = Colors.green; //Placeholder
     }
 
+    User user = User(
+      name: "Katerina Petrova",
+      description:
+          "According to all known laws of aviation, there is no way a bee should be able to fly.",
+      profilePictureUrl:
+          "https://latexmagicbest.com/wp-content/uploads/2023/06/xy-dominant-woman-in-latex-catsuit-c.webp",
+      isSub: false,
+      isCertified: true,
+      age: 25,
+      email: "test@test.com",
+    );
+
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: UserCard(name: "Katerina Petrova", description: "Wow, Im so great!", imageUrl: "https://latexmagicbest.com/wp-content/uploads/2023/06/xy-dominant-woman-in-latex-catsuit-c.webp", isCertified: true),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset(
+                'assets/images/dom_home.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+            Center(
+              child: SizedBox(
+                width: 345,
+                height: 570,
+                child: UserCard(user: user),
+              ),
+            ),
+          ],
         ),
       ),
     );

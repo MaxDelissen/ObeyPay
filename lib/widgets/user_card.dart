@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:obeypay/widgets/certified_badge.dart';
 
+import '../utils/objects/user.dart';
+
 class UserCard extends StatelessWidget {
-  final String name;
-  final String description;
-  final String imageUrl;
-  final bool isCertified;
+  final User user;
 
   const UserCard({
     Key? key,
-    required this.name,
-    required this.description,
-    required this.imageUrl,
-    this.isCertified = false,
+    required this.user,
   }) : super(key: key);
 
   @override
@@ -25,17 +21,20 @@ class UserCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image(image: NetworkImage(imageUrl)),
+            SizedBox(
+              width: 280,
+              height: 300,
+                child: Image(image: NetworkImage(user.profilePictureUrl!))),
             const SizedBox(height: 10.0),
             Text(
-              name,
+              user.name!,
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
               ),
             ),
-            if (isCertified)
+            if (user.isCertified!)
               //const Text('Certified', style: TextStyle(fontSize: 10.0)),
               CertifiedBadge(),
             const SizedBox(height: 17.0),
@@ -49,7 +48,7 @@ class UserCard extends StatelessWidget {
             ),
             const SizedBox(height: 4.0),
             Text(
-              description,
+              user.description!,
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
