@@ -31,24 +31,26 @@ class HomePage extends StatelessWidget {
     );
 
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned.fill(
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: FittedBox(
+              fit: BoxFit.cover,
               child: Image.asset(
                 'assets/images/dom_home.png',
-                fit: BoxFit.cover,
               ),
             ),
-            Center(
+          ),
+          SafeArea(
+            child: Center(
               child: SizedBox(
                 width: 345,
                 height: 570,
                 child: UserCard(user: user),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
