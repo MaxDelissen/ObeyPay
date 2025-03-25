@@ -18,9 +18,10 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Epic Flutter App')),
-      body: Center(
-        child: UserCard(name: "Katerina Petrova", description: "Wow, Im so great!", imageUrl: "https://dummyimage.com/500x800/f200f2", isCertified: true),
+      body: SafeArea(
+        child: Center(
+          child: UserCard(name: "Katerina Petrova", description: "Wow, Im so great!", imageUrl: "https://latexmagicbest.com/wp-content/uploads/2023/06/xy-dominant-woman-in-latex-catsuit-c.webp", isCertified: true),
+        ),
       ),
     );
   }

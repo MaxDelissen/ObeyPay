@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:obeypay/widgets/certified_badge.dart';
 
 class UserCard extends StatelessWidget {
   final String name;
@@ -17,47 +18,44 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.black,
       margin: const EdgeInsets.all(8.0),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(31.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image(
-              image: NetworkImage(imageUrl),
-              width: 100.0,
-            ),
-            const SizedBox(width: 10.0),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                if (isCertified)
-                  const Text(
-                    'Certified',
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 12.0,
-                    ),
-                  ),
-              ],
-            ),
+            Image(image: NetworkImage(imageUrl)),
             const SizedBox(height: 10.0),
-            const Text(
-              'Description',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
+            Text(
+              name,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
               ),
             ),
-            const SizedBox(height: 5.0),
-            Text(description),
+            if (isCertified)
+              //const Text('Certified', style: TextStyle(fontSize: 10.0)),
+              CertifiedBadge(),
+            const SizedBox(height: 17.0),
+            const Text(
+              'Additional Info',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+                color: Color.fromRGBO(255, 255, 255, 75)
+              ),
+            ),
+            const SizedBox(height: 4.0),
+            Text(
+              description,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: Color.fromRGBO(255, 255, 255, 70)
+              ),
+            ),
           ],
         ),
       ),
