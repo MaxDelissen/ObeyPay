@@ -4,18 +4,28 @@ class AppStyles {
   static TextStyle textStyle(BuildContext context) {
     double scale = MediaQuery.of(context).size.width * 0.05;
     return TextStyle(
-      fontSize: scale, // Dynamically scaled font size
+      fontSize: scale,
       color: Colors.white,
+      fontFamily: 'Playfair',
+     
+    );
+  }
+
+  static TextStyle nameStyle(BuildContext context) {
+    double scale = MediaQuery.of(context).size.width * 0.05;
+    return TextStyle(
+      fontSize: scale,
+      color: const Color.fromARGB(255, 255, 255, 255),
       fontFamily: 'Playfair',
       fontWeight: FontWeight.bold,
     );
   }
 
-  static TextStyle labelStyle(BuildContext context) {
-    double scale = MediaQuery.of(context).size.width * 0.045;
+    static TextStyle jobStyle(BuildContext context) {
+    double scale = MediaQuery.of(context).size.width * 0.03;
     return TextStyle(
       fontSize: scale,
-      color: const Color.fromARGB(205, 255, 255, 255),
+      color: const Color.fromARGB(154, 255, 255, 255),
       fontFamily: 'Playfair',
     );
   }

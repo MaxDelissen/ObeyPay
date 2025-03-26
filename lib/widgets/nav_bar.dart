@@ -1,63 +1,69 @@
 import 'package:flutter/material.dart';
-import '../widgets/text_styles.dart';
 
 class NavBar extends StatelessWidget {
+  final List<NavBarButton> buttons;
+  final Color backgroundColor; // Added background color as a parameter
+
+  const NavBar({
+    Key? key,
+    required this.buttons,
+    this.backgroundColor = Colors.white,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-        padding: EdgeInsets.all(screenWidth * 0.02), 
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(screenWidth * 0.1), 
-        ),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(screenWidth * 0.1), 
-              child: Image.asset(
-                'assets/images/dom_profile.png',
-                width: screenWidth * 0.14, 
-                height: screenWidth * 0.14, 
-                fit: BoxFit.cover,
+      width: screenWidth * 0.64,
+      padding: EdgeInsets.only(top: screenWidth * 0.017, bottom: screenWidth * 0.017, left: screenWidth * 0.015),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(screenWidth * 0.1),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: buttons
+            .map(
+              (button) => Padding(
+                padding: EdgeInsets.only(right: screenWidth * 0.015),
+                child: _buildButton(context, button),
               ),
-            ),
-            SizedBox(width: screenWidth * 0.01),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(screenWidth * 0.1), 
-              child: Image.asset(
-                'assets/images/dom_profile.png',
-                width: screenWidth * 0.14, 
-                height: screenWidth * 0.14, 
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(width: screenWidth * 0.01),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(screenWidth * 0.1), 
-              child: Image.asset(
-                'assets/images/dom_profile.png',
-                width: screenWidth * 0.14, 
-                height: screenWidth * 0.14, 
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(width: screenWidth * 0.01),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(screenWidth * 0.1), 
-              child: Image.asset(
-                'assets/images/dom_profile.png',
-                width: screenWidth * 0.14, 
-                height: screenWidth * 0.14, 
-                fit: BoxFit.cover,
-              ),
-            ),
-          ],
-        ),
-     
+            )
+            .toList(),
+      ),
     );
   }
+
+  Widget _buildButton(BuildContext context, NavBarButton button) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return SizedBox(
+      width: screenWidth * 0.14,
+      height: screenWidth * 0.14,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(screenWidth * 0.1),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: button.color,
+            padding: EdgeInsets.all(20),
+          ),
+          onPressed: button.onPressed,
+          child: Image.asset(button.icon, width: screenWidth * 0.07),
+        ),
+      ),
+    );
+  }
+}
+
+class NavBarButton {
+  final String icon;
+  final Color color;
+  final VoidCallback onPressed;
+
+  NavBarButton({
+    required this.icon,
+    required this.color,
+    required this.onPressed,
+  });
 }

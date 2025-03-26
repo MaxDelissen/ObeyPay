@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:obeypay/widgets/nav_bar.dart';
 import '../widgets/text_styles.dart';
 import '../widgets/profile_card.dart';
 
@@ -17,27 +18,48 @@ class DomProfilePage extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/dom_profile.png"),
+                  image: AssetImage("assets/images/profile.png"),
                   fit: BoxFit.cover,
                 ),
               ),
               child: Column(
                 children: [
-                  SizedBox(height: screenHeight * 0.12), 
+                  SizedBox(height: screenHeight * 0.09), 
                   Text(
                     'Goddess, Alexa',
                     style: AppStyles.headingStyle(context),
                   ),
                   ProfileCard(
-                    name: 'Alexa',
-                    age: '27',
-                    level: '7',
-                    balance: '200',
-                    weeklyEarnings: '2700',
-                    allTimeEarnings: '14000',
+                    name: 'Uncle Richerson',
+                    job: 'Senior programmer',
+                    monthly: '200',
+                    total: '2700',
                     description: 'Lorem ipsum',
                     imageUrl: 'assets/images/golddigger.png',
                   ),
+                  NavBar(buttons: [
+                      NavBarButton(
+                        icon: 'assets/images/home_gray.png',
+                        color: Color(0xFFE3E2E2),
+                        onPressed: () {},
+                      ),
+                      NavBarButton(
+                        icon: 'assets/images/profile_black.png',
+                        color: Color(0xFFEF45B1),
+                        onPressed: () {},
+                      ),
+                      NavBarButton(
+                        icon: 'assets/images/chats_gray.png',
+                        color: Color(0xFFE3E2E2),
+                        onPressed: () {},
+                      ),
+                      NavBarButton(
+                        icon: 'assets/images/cart_gray.png',
+                        color: Color(0xFFE3E2E2),
+                        onPressed: () {},
+                      ),
+                    ],
+                    backgroundColor: Colors.white,)
                 ],
               ),
             ),
