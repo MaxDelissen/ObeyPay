@@ -10,6 +10,8 @@ void main() {
 
   NotificationService().initNotification();
 
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
   runApp(const MyApp());
 }
 
