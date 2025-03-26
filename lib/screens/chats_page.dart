@@ -38,6 +38,20 @@ class ChatsPage extends StatelessWidget {
                     lastMessage: 'idk pig, pay and see',
                     imageUrl: 'assets/images/golddigger.png',
                   ),
+        //           Positioned(
+        // bottom: 10, // Adjust as needed
+        // left: 0,
+        // right: 0,
+        // child: Center(
+        //   child:
+        //
+        // Align(
+        // alignment: Alignment.bottomCenter,
+        // child: Padding(
+        //   padding: const EdgeInsets.only(bottom: 10), // Adjust if needed
+        //   child:
+        //
+        // using bottomNavigationBar dodn't work either 
                   NavBar(
                     buttons: [
                       NavBarButton(

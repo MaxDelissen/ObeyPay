@@ -29,6 +29,7 @@ class DomProfilePage extends StatelessWidget {
                     'Goddess, Alexa',
                     style: AppStyles.headingStyle(context),
                   ),
+                  // i have no idea why all of a sudden the background got smaller 
                   ProfileCard(
                     name: 'Uncle Richerson',
                     job: 'Senior programmer',
