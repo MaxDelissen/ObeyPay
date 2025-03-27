@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:obeypay/screens/home_page.dart';
+import 'package:obeypay/screens/shop_page.dart';
 import 'package:obeypay/utils/notificationService.dart';
 
 void main() {
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         // Other default theme properties if we want.
       ),
-      home: const HomePage(),
+      home: const ShopPage(),
     );
   }
 }
