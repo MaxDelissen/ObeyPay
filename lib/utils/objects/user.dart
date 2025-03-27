@@ -6,8 +6,10 @@ class User {
   int? age;
   bool? isSub;
   bool? isCertified;
-  String? description;
+  String? jobTitle;
   String? profilePictureUrl;
+  String? monthlyCap;
+  String? totalSpent;
   // Add other fields as you see fit / need.
 
   User({
@@ -17,8 +19,10 @@ class User {
     this.age,
     this.isSub,
     this.isCertified,
-    this.description,
+    this.jobTitle,
     this.profilePictureUrl,
+    this.monthlyCap,
+    this.totalSpent,
   });
 
   User.fromJson(Map<String, dynamic> json) {
@@ -28,8 +32,10 @@ class User {
     age = json['age'];
     isSub = json['isSub'];
     isCertified = json['isCertified'];
-    description = json['description'];
+    jobTitle = json['description'];
     profilePictureUrl = json['profilePictureUrl'];
+    monthlyCap = json['monthlyCap'];
+    totalSpent = json['totalSpent'];
   }
 
   Map<String, dynamic> toJson() {
@@ -40,8 +46,10 @@ class User {
       'age': age,
       'isSub': isSub,
       'isCertified': isCertified,
-      'description': description,
+      'description': jobTitle,
       'profilePictureUrl': profilePictureUrl,
+      'monthlyCap': monthlyCap,
+      'totalSpent': totalSpent,
     };
   }
 }

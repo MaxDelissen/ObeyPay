@@ -3,54 +3,75 @@ import 'package:flutter/material.dart';
 import '../utils/objects/user.dart';
 import '../widgets/user_card.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    String accountType =
-        'dom'; // This should be dynamically set based on the user
+  State<HomePage> createState() => _HomePageState();
+}
 
-    Color accentColor;
-    if (accountType == 'dom') {
-      accentColor = Colors.amber; //Placeholder
-    } else {
-      accentColor = Colors.green; //Placeholder
-    }
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    double _sliderValue = 50;
 
     User user = User(
-      name: "Katerina Petrova",
-      description:
-          "According to all known laws of aviation, there is no way a bee should be able to fly.",
+      name: "Methew Johnsons",
+      jobTitle: "Senior programmer",
       profilePictureUrl:
-          "https://latexmagicbest.com/wp-content/uploads/2023/06/xy-dominant-woman-in-latex-catsuit-c.webp",
+          "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQyrsm9OOijHoa55nD2b4lMqQL6WmHpzCHSbxksFxUa9yFhKPy_",
       isSub: false,
       isCertified: true,
       age: 25,
       email: "test@test.com",
+      monthlyCap: "200",
+      totalSpent: "2k",
     );
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: FittedBox(
-              fit: BoxFit.cover,
-              child: Image.asset(
-                'assets/images/dom_home.png',
-              ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/swipe.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 345,
+                  height: 480,
+                  child: UserCard(user: user),
+                ),
+                SizedBox(
+                  width: 345,
+                  child: SliderTheme(
+                    data: SliderThemeData(
+                      activeTrackColor: const Color(0xFFEF45B1),
+                      thumbColor: const Color(0xFFEF45B1),
+                      overlayColor: const Color(0xFFEF45B1).withOpacity(0.2),
+                      inactiveTrackColor: Colors.white.withOpacity(0.3),
+                    ),
+                    child: Slider(
+                      value: _sliderValue,
+                      min: 0,
+                      max: 100,
+                      onChanged: (value) {
+                        setState(() {
+                          _sliderValue = value;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          SafeArea(
-            child: Center(
-              child: SizedBox(
-                width: 345,
-                height: 570,
-                child: UserCard(user: user),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
