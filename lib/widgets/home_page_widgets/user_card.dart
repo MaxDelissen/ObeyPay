@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:obeypay/widgets/certified_badge.dart';
-import '../utils/objects/user.dart';
+import 'package:obeypay/widgets/home_page_widgets/certified_badge.dart';
+import '../../utils/objects/user.dart';
 
 class UserCard extends StatelessWidget {
   final User user;
@@ -47,7 +47,7 @@ class UserCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10.0),
-            if (user.isCertified!) CertifiedBadge(),
+            if (user.isCertified!) CertifiedBadge(isSub: user.isSub!),
             const SizedBox(height: 25.0),
             Text.rich(
               TextSpan(

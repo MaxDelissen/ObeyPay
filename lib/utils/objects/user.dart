@@ -1,6 +1,5 @@
 class User {
-  String?
-  id; // Not needed for the current project, but useful if we expend to a db.
+  int? id; // Not needed for the current project, but useful if we expend to a db.
   String? name;
   String? email;
   int? age;
