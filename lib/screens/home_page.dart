@@ -5,7 +5,6 @@ import 'package:scrumlab_flutter_tindercard/scrumlab_flutter_tindercard.dart';
 
 import '../utils/demo_users.dart' show DemoUsers;
 import '../utils/objects/user.dart';
-import '../widgets/home_page_widgets/user_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
