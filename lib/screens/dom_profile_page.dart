@@ -18,7 +18,7 @@ class DomProfilePage extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/profile.png"),
+                  image: AssetImage("assets/images/paypig.png"),
                   fit: BoxFit.cover,
                 ),
               ),

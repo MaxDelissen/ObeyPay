@@ -16,18 +16,15 @@ class ChatsPage extends StatelessWidget {
           Expanded(
             flex: 3,
             child: Container(
-              height: screenHeight * 0.4,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/chats.png"),
+                  image: AssetImage("assets/images/matches.png"),
                   fit: BoxFit.cover,
                 ),
               ),
               child: Column(
                 children: [
-                  SizedBox(height: screenHeight * 0.08),
-                  Text('Matches', style: AppStyles.headingStyle(context)),
-                  SizedBox(height: screenHeight * 0.065),
+                  SizedBox(height: screenHeight * 0.22),
                   ChatCard(
                     name: 'Alexa',
                     lastMessage: 'idk pig, pay and see',
@@ -37,45 +34,6 @@ class ChatsPage extends StatelessWidget {
                     name: 'Alexa',
                     lastMessage: 'idk pig, pay and see',
                     imageUrl: 'assets/images/golddigger.png',
-                  ),
-        //           Positioned(
-        // bottom: 10, // Adjust as needed
-        // left: 0,
-        // right: 0,
-        // child: Center(
-        //   child:
-        //
-        // Align(
-        // alignment: Alignment.bottomCenter,
-        // child: Padding(
-        //   padding: const EdgeInsets.only(bottom: 10), // Adjust if needed
-        //   child:
-        //
-        // using bottomNavigationBar dodn't work either 
-                  NavBar(
-                    buttons: [
-                      NavBarButton(
-                        icon: 'assets/images/home_gray.png',
-                        color: Color(0xFF443E3E),
-                        onPressed: () {},
-                      ),
-                      NavBarButton(
-                        icon: 'assets/images/profile_gray.png',
-                        color: Color(0xFF443E3E),
-                        onPressed: () {},
-                      ),
-                      NavBarButton(
-                        icon: 'assets/images/chats_black.png',
-                        color: Color(0xFFEF45B1),
-                        onPressed: () {},
-                      ),
-                      NavBarButton(
-                        icon: 'assets/images/cart_gray.png',
-                        color: Color(0xFF443E3E),
-                        onPressed: () {},
-                      ),
-                    ],
-                    backgroundColor: Colors.black,
                   ),
                 ],
               ),
@@ -83,6 +41,33 @@ class ChatsPage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton:
+      NavBar(
+        buttons: [
+          NavBarButton(
+            icon: 'assets/images/home_gray.png',
+            color: Color(0xFF443E3E),
+            onPressed: () {},
+          ),
+          NavBarButton(
+            icon: 'assets/images/profile_gray.png',
+            color: Color(0xFF443E3E),
+            onPressed: () {},
+          ),
+          NavBarButton(
+            icon: 'assets/images/chats_black.png',
+            color: Color(0xFFEF45B1),
+            onPressed: () {},
+          ),
+          NavBarButton(
+            icon: 'assets/images/cart_gray.png',
+            color: Color(0xFF443E3E),
+            onPressed: () {},
+          ),
+        ],
+        backgroundColor: Colors.black,
+      ),
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked
     );
   }
 }
