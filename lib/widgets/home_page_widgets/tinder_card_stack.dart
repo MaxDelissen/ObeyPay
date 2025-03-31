@@ -31,11 +31,6 @@ class TinderCardStack extends StatelessWidget {
               cardBuilder: (context, index) => UserCard(user: DemoUsers[index]),
               cardController: controller,
               swipeUpdateCallback: (details, align) {
-                if (align.x < 0) {
-                  print("Swiping Left");
-                } else if (align.x > 0) {
-                  print("Swiping Right");
-                }
               },
               swipeCompleteCallback: (orientation, index) {
                 print("Card $index swiped $orientation");

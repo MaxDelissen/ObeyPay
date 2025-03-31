@@ -37,27 +37,31 @@ class _HomePageState extends State<HomePage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Stack(
           children: [
+            Positioned(
+              bottom: 150,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: SizedBox(
+                  width: 400,
+                  child: MoneySlider(
+                    value: sliderValue,
+                    onChanged: (double value) {
+                      setState(() {
+                        sliderValue = value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.only(left: 15.0),
-                child: TinderCardStack(controller: controller,)
-              ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: 400,
-              child: MoneySlider(
-                value: sliderValue,
-                onChanged: (double value) {
-                  setState(() {
-                    sliderValue = value;
-                  });
-                },
+                child: TinderCardStack(controller: controller),
               ),
             ),
           ],
