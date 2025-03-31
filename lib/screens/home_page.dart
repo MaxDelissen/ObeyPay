@@ -22,7 +22,9 @@ class _HomePageState extends State<HomePage> {
     return users.where((user) {
       if (user.monthlyCap == null) return false;
       // Remove currency symbol and convert to double
-      final cap = double.tryParse(user.monthlyCap!.replaceAll(RegExp(r'[^\d.]'), '')) ?? 0;
+      final cap =
+          double.tryParse(user.monthlyCap!.replaceAll(RegExp(r'[^\d.]'), '')) ??
+          0;
       return sliderValue >= 800 ? cap >= 750 : cap >= sliderValue;
     }).toList();
   }
@@ -30,42 +32,31 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      child: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/swipe.png'),
-              fit: BoxFit.cover,
+      imagePath: 'assets/images/swipe.png',
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: TinderCardStack(users: filteredUsers),
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: TinderCardStack(users: filteredUsers)
-                ),
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: 400,
-                child: MoneySlider(
-                  value: sliderValue,
-                  onChanged: (double value) {
-                    setState(() {
-                      sliderValue = value;
-                    });
-                  },
-                ),
-                
-              ),
-              
-            ],
+          const SizedBox(height: 20),
+          SizedBox(
+            width: 400,
+            child: MoneySlider(
+              value: sliderValue,
+              onChanged: (double value) {
+                setState(() {
+                  sliderValue = value;
+                });
+              },
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
