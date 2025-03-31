@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/text_styles.dart';
+import 'text_styles.dart';
 
 class ProfileCard extends StatelessWidget {
   final String name;

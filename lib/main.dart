@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:obeypay/screens/shop_page.dart';
 import 'package:obeypay/screens/chats_page.dart';
 import 'package:obeypay/screens/dom_profile_page.dart';
 import 'package:obeypay/screens/home_page.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         // Other default theme properties if we want.
       ),
-      home: const ChatsPage(),
+      home: const HomePage(),
     );
   }
 }
