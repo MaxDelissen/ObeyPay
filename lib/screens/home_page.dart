@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:obeypay/widgets/home_page_widgets/money_slider.dart';
 import 'package:obeypay/widgets/home_page_widgets/tinder_card_stack.dart';
-import 'package:scrumlab_flutter_tindercard/scrumlab_flutter_tindercard.dart';
 
 import '../utils/demo_users.dart' show DemoUsers;
 import '../utils/objects/user.dart';
@@ -16,7 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double sliderValue = 50;
   List<User> users = DemoUsers;
-  final CardController controller = CardController();
 
   List<User> get filteredUsers {
     return users.where((user) {
@@ -37,31 +35,27 @@ class _HomePageState extends State<HomePage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Stack(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Positioned(
-              bottom: 150,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: SizedBox(
-                  width: 400,
-                  child: MoneySlider(
-                    value: sliderValue,
-                    onChanged: (double value) {
-                      setState(() {
-                        sliderValue = value;
-                      });
-                    },
-                  ),
-                ),
-              ),
-            ),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: TinderCardStack(controller: controller),
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: TinderCardStack(users: filteredUsers)
+              ),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 400,
+              child: MoneySlider(
+                value: sliderValue,
+                onChanged: (double value) {
+                  setState(() {
+                    sliderValue = value;
+                  });
+                },
               ),
             ),
           ],
