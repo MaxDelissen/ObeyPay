@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:obeypay/screens/base_page.dart';
 import 'package:obeypay/widgets/home_page_widgets/money_slider.dart';
 import 'package:obeypay/widgets/home_page_widgets/tinder_card_stack.dart';
 
 import '../utils/demo_users.dart' show DemoUsers;
 import '../utils/objects/user.dart';
+import '../widgets/nav_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,38 +29,42 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/swipe.png'),
-            fit: BoxFit.cover,
+    return BasePage(
+      child: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/swipe.png'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: TinderCardStack(users: filteredUsers)
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: TinderCardStack(users: filteredUsers)
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: 400,
-              child: MoneySlider(
-                value: sliderValue,
-                onChanged: (double value) {
-                  setState(() {
-                    sliderValue = value;
-                  });
-                },
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 400,
+                child: MoneySlider(
+                  value: sliderValue,
+                  onChanged: (double value) {
+                    setState(() {
+                      sliderValue = value;
+                    });
+                  },
+                ),
+                
               ),
-            ),
-          ],
+              
+            ],
+          ),
         ),
       ),
     );
