@@ -31,7 +31,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return BasePage(
+      parentIndex: 0,
       imagePath: 'assets/images/swipe.png',
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -40,13 +44,31 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 15.0),
-              child: TinderCardStack(users: filteredUsers),
+              padding: EdgeInsets.only(
+                left: screenWidth * 0.04,
+              ), // 4% of screen width
+              child:
+                  filteredUsers.isNotEmpty
+                      ? TinderCardStack(users: filteredUsers)
+                      : SizedBox(
+                        width: 345,
+                        height: 480,
+                        child: Center(
+                          child: Text(
+                            'No users found',
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.06,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: screenHeight * 0.03), // 3% of screen height
           SizedBox(
-            width: 400,
+            width: screenWidth * 0.85, // 85% of screen width
             child: MoneySlider(
               value: sliderValue,
               onChanged: (double value) {

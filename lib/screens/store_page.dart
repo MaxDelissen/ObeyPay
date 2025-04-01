@@ -11,6 +11,7 @@ class StorePage extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return BasePage(
+      parentIndex: 3,
       imagePath: "assets/images/store.png",
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
