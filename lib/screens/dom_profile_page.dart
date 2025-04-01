@@ -16,7 +16,7 @@ class DomProfilePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: screenHeight * 0.09, width: screenWidth),
+          SizedBox(height: screenHeight * 0.075, width: screenWidth),
           ProfileCardRoyal(
             name: 'Adriana Katerson',
             age: '25',
