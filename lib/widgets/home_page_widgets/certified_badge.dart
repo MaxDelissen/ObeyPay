@@ -12,7 +12,7 @@ class CertifiedBadge extends StatelessWidget {
       width: 97.6,
       height: 17.0,
       decoration: BoxDecoration(
-        color: const Color(0xFF7E3434),
+        color: const Color(0xFFEF45B1),
         borderRadius: BorderRadius.circular(28.0),
       ),
       child: Row(

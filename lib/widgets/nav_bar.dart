@@ -26,10 +26,10 @@ class NavBar extends StatelessWidget {
         children: buttons
             .map(
               (button) => Padding(
-                padding: EdgeInsets.only(right: screenWidth * 0.015),
-                child: _buildButton(context, button),
-              ),
-            )
+            padding: EdgeInsets.only(right: screenWidth * 0.015),
+            child: _buildButton(context, button),
+          ),
+        )
             .toList(),
       ),
     );
@@ -43,13 +43,17 @@ class NavBar extends StatelessWidget {
       height: screenWidth * 0.14,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(screenWidth * 0.1),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: button.color,
-            padding: EdgeInsets.all(20),
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 200),
+          color: button.color,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.transparent,
+              padding: EdgeInsets.all(20),
+            ),
+            onPressed: button.onPressed,
+            child: Image.asset(button.icon, width: screenWidth * 0.07),
           ),
-          onPressed: button.onPressed,
-          child: Image.asset(button.icon, width: screenWidth * 0.07),
         ),
       ),
     );

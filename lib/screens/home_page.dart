@@ -1,53 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:obeypay/screens/base_page.dart';
+import 'package:obeypay/widgets/home_page_widgets/money_slider.dart';
+import 'package:obeypay/widgets/home_page_widgets/tinder_card_stack.dart';
 
+import '../utils/demo_users.dart' show DemoUsers;
 import '../utils/objects/user.dart';
-import '../widgets/user_card.dart';
+import '../widgets/nav_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  double sliderValue = 50;
+  List<User> users = DemoUsers;
+
+  List<User> get filteredUsers {
+    return users.where((user) {
+      if (user.monthlyCap == null) return false;
+      // Remove currency symbol and convert to double
+      final cap =
+          double.tryParse(user.monthlyCap!.replaceAll(RegExp(r'[^\d.]'), '')) ??
+          0;
+      return sliderValue >= 800 ? cap >= 750 : cap >= sliderValue;
+    }).toList();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    String accountType =
-        'dom'; // This should be dynamically set based on the user
-
-    Color accentColor;
-    if (accountType == 'dom') {
-      accentColor = Colors.amber; //Placeholder
-    } else {
-      accentColor = Colors.green; //Placeholder
-    }
-
-    User user = User(
-      name: "Katerina Petrova",
-      description:
-          "According to all known laws of aviation, there is no way a bee should be able to fly.",
-      profilePictureUrl:
-          "https://latexmagicbest.com/wp-content/uploads/2023/06/xy-dominant-woman-in-latex-catsuit-c.webp",
-      isSub: false,
-      isCertified: true,
-      age: 25,
-      email: "test@test.com",
-    );
-
-    return Scaffold(
-      body: Stack(
+    return BasePage(
+      imagePath: 'assets/images/swipe.png',
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Positioned.fill(
-            child: FittedBox(
-              fit: BoxFit.cover,
-              child: Image.asset(
-                'assets/images/dom_home.png',
-              ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: TinderCardStack(users: filteredUsers),
             ),
           ),
-          SafeArea(
-            child: Center(
-              child: SizedBox(
-                width: 345,
-                height: 570,
-                child: UserCard(user: user),
-              ),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: 400,
+            child: MoneySlider(
+              value: sliderValue,
+              onChanged: (double value) {
+                setState(() {
+                  sliderValue = value;
+                });
+              },
             ),
           ),
         ],
