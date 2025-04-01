@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       // Remove currency symbol and convert to double
       final cap =
           double.tryParse(user.monthlyCap!.replaceAll(RegExp(r'[^\d.]'), '')) ??
-              0;
+          0;
       return sliderValue >= 800 ? cap >= 750 : cap >= sliderValue;
     }).toList();
   }
@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return BasePage(
+      parentIndex: 0,
       imagePath: 'assets/images/swipe.png',
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -43,8 +44,26 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: screenWidth * 0.04), // 4% of screen width
-              child: TinderCardStack(users: filteredUsers),
+              padding: EdgeInsets.only(
+                left: screenWidth * 0.04,
+              ), // 4% of screen width
+              child:
+                  filteredUsers.isNotEmpty
+                      ? TinderCardStack(users: filteredUsers)
+                      : SizedBox(
+                        width: 345,
+                        height: 480,
+                        child: Center(
+                          child: Text(
+                            'No users found',
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.06,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
             ),
           ),
           SizedBox(height: screenHeight * 0.03), // 3% of screen height

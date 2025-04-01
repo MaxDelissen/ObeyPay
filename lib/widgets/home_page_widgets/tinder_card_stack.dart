@@ -17,6 +17,23 @@ class TinderCardStack extends StatelessWidget {
       user: user,
     )).toList();
 
+    /*if (cards.isEmpty) {
+      User user = User(
+        name: 'No Matches',
+        jobTitle: 'No Matches',
+        monthlyCap: '0',
+        totalSpent: '0',
+        age: 0,
+        isCertified: false,
+        isSub: false,
+      );
+      cards.add(UserCard(
+        user: user,
+      ));
+    }*/
+
+    final int cardsToDisplay = cards.length > 1 ? 2 : 1;
+
     return SizedBox(
       width: 345,
       height: 480,
@@ -28,7 +45,7 @@ class TinderCardStack extends StatelessWidget {
           left: true,
         ),
         scale: 0.6,
-        numberOfCardsDisplayed: 2,
+        numberOfCardsDisplayed: cardsToDisplay,
       ),
     );
   }

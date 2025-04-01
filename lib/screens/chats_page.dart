@@ -10,6 +10,7 @@ class ChatsPage extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return BasePage(
+      parentIndex: 2,
       imagePath: "assets/images/matches.png",
       child: Column(
         children: [

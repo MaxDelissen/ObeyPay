@@ -11,6 +11,7 @@ class DomProfilePage extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
 
     return BasePage(
+      parentIndex: 1,
       imagePath: "assets/images/paypig.png",
       child: Column(
         children: [
