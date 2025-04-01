@@ -11,6 +11,7 @@ class SubProfilePage extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return BasePage(
+      parentIndex: 1,
       imagePath: "assets/images/paypig.png",
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

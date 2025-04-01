@@ -11,6 +11,7 @@ class DomProfilePage extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return BasePage(
+      parentIndex: 1,
       imagePath: "assets/images/royal.png",
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
