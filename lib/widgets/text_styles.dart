@@ -11,6 +11,16 @@ class AppStyles {
     );
   }
 
+    static TextStyle aboutStyle(BuildContext context) {
+    double scale = MediaQuery.of(context).size.width * 0.04;
+    return TextStyle(
+      fontSize: scale,
+      color: Colors.white,
+      fontFamily: 'Playfair',
+     
+    );
+  }
+
   static TextStyle nameStyle(BuildContext context) {
     double scale = MediaQuery.of(context).size.width * 0.05;
     return TextStyle(
@@ -22,10 +32,10 @@ class AppStyles {
   }
 
     static TextStyle jobStyle(BuildContext context) {
-    double scale = MediaQuery.of(context).size.width * 0.03;
+    double scale = MediaQuery.of(context).size.width * 0.045;
     return TextStyle(
       fontSize: scale,
-      color: const Color.fromARGB(154, 255, 255, 255),
+      color: const Color.fromARGB(185, 255, 255, 255),
       fontFamily: 'Playfair',
     );
   }
@@ -40,7 +50,7 @@ class AppStyles {
   }
 
   static TextStyle chatStyle(BuildContext context) {
-    double scale = MediaQuery.of(context).size.width * 0.045;
+    double scale = MediaQuery.of(context).size.width * 0.042;
     return TextStyle(
       fontSize: scale,
       color: const Color.fromARGB(197, 89, 89, 89),

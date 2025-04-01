@@ -51,7 +51,7 @@ class UserCard extends StatelessWidget {
             const SizedBox(height: 25.0),
             Text.rich(
               TextSpan(
-                text: 'Monthly Cap: 💰 ',
+                text: 'Monthly Cap: ',
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
@@ -72,7 +72,7 @@ class UserCard extends StatelessWidget {
             const SizedBox(height: 4.0),
             Text.rich(
               TextSpan(
-                text: 'Total Spent: 🤑 ',
+                text: 'Total Spent: ',
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
