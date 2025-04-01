@@ -17,7 +17,7 @@ class ChatsPage extends StatelessWidget {
           SizedBox(height: screenHeight * 0.22),
           ChatCard(
             name: 'Alexa',
-            lastMessage: 'Let me know when you can',
+            lastMessage: 'Let me know',
             imageUrl: 'assets/images/sub3.png',
           ),
           ChatCard(

@@ -22,7 +22,7 @@ class DomProfilePage extends StatelessWidget {
             age: '25',
             monthly: '200',
             willing: 'send pictures',
-            description: 'Living life in the fast lane and always aiming for the finer things. Champagne, designer bags, and first-class flights? That’s the standard. I know what I want, and I have no problem getting it—because luxury isn’t just a lifestyle, it’s a necessity.',
+            description: 'Living life in the fast lane and always aiming for the finer things. Champagne, designer bags, and first-class flights are the standard. I know what I want, luxury isn’t just a lifestyle, it’s a necessity.',
             imageUrl: 'assets/images/golddigger.png',
           ),
         ],
