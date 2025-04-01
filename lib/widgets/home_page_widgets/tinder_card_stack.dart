@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:audioplayers/audioplayers.dart';
 import '../../utils/objects/user.dart';
 import 'user_card.dart';
 
-class TinderCardStack extends StatelessWidget {
+class TinderCardStack extends StatefulWidget {
   final List<User> users;
 
   const TinderCardStack({
@@ -12,25 +13,31 @@ class TinderCardStack extends StatelessWidget {
   });
 
   @override
+  State<TinderCardStack> createState() => _TinderCardStackState();
+}
+
+class _TinderCardStackState extends State<TinderCardStack> {
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+  
+  Future<void> _playSwipeRight() async {
+    await _audioPlayer.play(AssetSource('sounds/cash-register.mp3'));
+  }
+  
+  Future<void> _playSwipeLeft() async {
+    await _audioPlayer.play(AssetSource('sounds/swipe-left.mp3'));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final List<UserCard> cards = users.map((user) => UserCard(
+    final List<UserCard> cards = widget.users.map((user) => UserCard(
       user: user,
     )).toList();
-
-    /*if (cards.isEmpty) {
-      User user = User(
-        name: 'No Matches',
-        jobTitle: 'No Matches',
-        monthlyCap: '0',
-        totalSpent: '0',
-        age: 0,
-        isCertified: false,
-        isSub: false,
-      );
-      cards.add(UserCard(
-        user: user,
-      ));
-    }*/
 
     final int cardsToDisplay = cards.length > 1 ? 2 : 1;
 
@@ -44,6 +51,15 @@ class TinderCardStack extends StatelessWidget {
           right: true,
           left: true,
         ),
+        onSwipe: (previousIndex, currentIndex, direction) {
+          if (direction == CardSwiperDirection.right) {
+            _playSwipeRight();
+          }
+          else if (direction == CardSwiperDirection.left) {
+            _playSwipeLeft();
+          }
+          return true;
+        },
         scale: 0.6,
         numberOfCardsDisplayed: cardsToDisplay,
       ),
