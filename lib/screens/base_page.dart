@@ -80,7 +80,7 @@ class _BasePageState extends State<BasePage> {
               }),
               backgroundColor: Color(0xFF160202),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 25),
           ],
         ),
       ),

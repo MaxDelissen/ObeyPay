@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                       ),
             ),
           ),
-          SizedBox(height: screenHeight * 0.03), // 3% of screen height
+          SizedBox(height: screenHeight * 0.02), // 3% of screen height
           SizedBox(
             width: screenWidth * 0.85, // 85% of screen width
             child: MoneySlider(
