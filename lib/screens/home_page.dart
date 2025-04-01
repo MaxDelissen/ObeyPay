@@ -24,13 +24,16 @@ class _HomePageState extends State<HomePage> {
       // Remove currency symbol and convert to double
       final cap =
           double.tryParse(user.monthlyCap!.replaceAll(RegExp(r'[^\d.]'), '')) ??
-          0;
+              0;
       return sliderValue >= 800 ? cap >= 750 : cap >= sliderValue;
     }).toList();
   }
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return BasePage(
       imagePath: 'assets/images/swipe.png',
       child: Column(
@@ -40,13 +43,13 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 15.0),
+              padding: EdgeInsets.only(left: screenWidth * 0.04), // 4% of screen width
               child: TinderCardStack(users: filteredUsers),
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: screenHeight * 0.03), // 3% of screen height
           SizedBox(
-            width: 400,
+            width: screenWidth * 0.85, // 85% of screen width
             child: MoneySlider(
               value: sliderValue,
               onChanged: (double value) {

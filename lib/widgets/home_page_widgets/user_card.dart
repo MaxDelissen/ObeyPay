@@ -9,82 +9,86 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
-      width: 378,
-      height: 380,
+      width: screenWidth * 1, // 90% of screen width
+      height: screenHeight * 1, // 50% of screen height
       child: Card(
         color: const Color(0xFF180712),
-        margin: const EdgeInsets.all(8.0),
+        margin: EdgeInsets.all(screenWidth * 0.02), // 2% of screen width
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 158,
-              height: 184,
+              width: screenWidth * 0.4, // 40% of screen width
+              height: screenHeight * 0.23, // 23% of screen height
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(screenWidth * 0.08),
                 child: Image(
                   image: NetworkImage(user.profilePictureUrl!),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
-            const SizedBox(height: 1.0),
+            SizedBox(height: screenHeight * 0.005), // Small gap
             Text(
               user.name!,
-              style: const TextStyle(
-                fontSize: 24,
+              style: TextStyle(
+                fontSize: screenWidth * 0.06, // Scaled font size
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
               ),
             ),
             Text(
               user.jobTitle!,
-              style: const TextStyle(
-                fontSize: 16,
+              style: TextStyle(
+                fontSize: screenWidth * 0.04, // Scaled font size
                 fontWeight: FontWeight.w600,
                 color: Colors.white70,
               ),
             ),
-            const SizedBox(height: 10.0),
+            SizedBox(height: screenHeight * 0.015), // 1.5% of screen height
             if (user.isCertified!) CertifiedBadge(isSub: user.isSub!),
-            const SizedBox(height: 25.0),
+            SizedBox(height: screenHeight * 0.015), // 3% of screen height
             Text.rich(
               TextSpan(
                 text: 'Monthly Cap: 💰 ',
-                style: const TextStyle(
-                  fontSize: 24,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),
                 children: [
                   TextSpan(
                     text: user.monthlyCap!,
-                    style: const TextStyle(
-                      fontSize: 30,
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.07, // Slightly bigger
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFFEF45B1),
+                      color: const Color(0xFFEF45B1),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 4.0),
+            SizedBox(height: screenHeight * 0.005),
             Text.rich(
               TextSpan(
                 text: 'Total Spent: 🤑 ',
-                style: const TextStyle(
-                  fontSize: 24,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),
                 children: [
                   TextSpan(
                     text: user.totalSpent!,
-                    style: const TextStyle(
-                      fontSize: 30,
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.07,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFFEF45B1),
+                      color: const Color(0xFFEF45B1),
                     ),
                   ),
                 ],
