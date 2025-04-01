@@ -17,13 +17,13 @@ class ChatsPage extends StatelessWidget {
           SizedBox(height: screenHeight * 0.22),
           ChatCard(
             name: 'Alexa',
-            lastMessage: 'idk pig, pay and see',
-            imageUrl: 'assets/images/golddigger.png',
+            lastMessage: 'Let me know when you can',
+            imageUrl: 'assets/images/sub3.png',
           ),
           ChatCard(
-            name: 'Alexa',
-            lastMessage: 'idk pig, pay and see',
-            imageUrl: 'assets/images/golddigger.png',
+            name: 'Tomson',
+            lastMessage: 'ok bby I sent 2000',
+            imageUrl: 'assets/images/sub1.png',
           ),
         ],
       ),

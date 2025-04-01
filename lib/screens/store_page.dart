@@ -16,7 +16,12 @@ class StorePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: screenHeight * 0.3),
+          SizedBox(height: screenHeight * 0.25),
+           Text(
+            '\$\$ amount: 50 000',
+            style: TextStyle(fontSize: 24, color: Colors.white),
+          ),
+          SizedBox(height: screenHeight * 0.065),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
