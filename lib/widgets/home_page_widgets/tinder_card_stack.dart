@@ -17,20 +17,32 @@ class TinderCardStack extends StatefulWidget {
 }
 
 class _TinderCardStackState extends State<TinderCardStack> {
-  final AudioPlayer _audioPlayer = AudioPlayer();
+  final List<AudioPlayer> _audioPlayers = [];
   
   @override
   void dispose() {
-    _audioPlayer.dispose();
+    for (final player in _audioPlayers) {
+      player.dispose();
+    }
     super.dispose();
   }
-  
+
   Future<void> _playSwipeRight() async {
-    await _audioPlayer.play(AssetSource('sounds/cash-register.mp3'));
+    _playSound('sounds/cash-register.mp3');
   }
-  
+
   Future<void> _playSwipeLeft() async {
-    await _audioPlayer.play(AssetSource('sounds/swipe-left.mp3'));
+    _playSound('sounds/swipe-left.mp3');
+  }
+
+  Future<void> _playSound(String soundPath) async {
+    final player = AudioPlayer();
+    _audioPlayers.add(player);
+    await player.play(AssetSource(soundPath));
+    player.onPlayerComplete.listen((_) {
+      player.dispose();
+      _audioPlayers.remove(player);
+    });
   }
 
   @override

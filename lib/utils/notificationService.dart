@@ -12,7 +12,7 @@ class NotificationService {
 
     //Prepare android
     const initSettingsAndroid = AndroidInitializationSettings(
-      '@mipmap/ic_launcher',
+      '/assets/images/icon/icon.png',
     );
 
     //Prepare iOS
