@@ -49,7 +49,7 @@ final List<User> DemoUsers = [
     isCertified: false,
     jobTitle: "UX Designer",
     profilePictureUrl:
-    "assets/images/Nikol.JPG",
+    "https://i.imgur.com/x3Is9LL.jpg",
     monthlyCap: "1000",
     totalSpent: "text",
   ),
