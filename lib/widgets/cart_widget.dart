@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:obeypay/utils/notificationService.dart';
 import '../widgets/text_styles.dart';
 
 class CartCard extends StatelessWidget {
@@ -23,7 +24,10 @@ class CartCard extends StatelessWidget {
                 Navigator.of(context).pop();
               }
             },);
-
+            NotificationService().showNotification(
+              title: 'New Gift Received!',
+              body: 'You were send €50.000',
+            );
             return Dialog(
               backgroundColor: Colors.transparent,
               elevation: 0,
