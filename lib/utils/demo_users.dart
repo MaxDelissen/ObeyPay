@@ -38,7 +38,7 @@ final List<User> DemoUsers = [
     profilePictureUrl:
     "https://www.askinclinic.co.uk/wp-content/uploads/2020/02/Beautiful-Woman-11-scaled.jpg",
     monthlyCap: "400",
-    totalSpent: "send pictures",
+    totalSpent: "pictures",
   ),
   User(
     id: 4,

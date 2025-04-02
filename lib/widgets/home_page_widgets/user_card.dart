@@ -42,8 +42,7 @@ class UserCard extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            Text(
-              user.age!.toString(),
+            Text("Age: ${user.age!.toString()}",
               style: TextStyle(
                 fontSize: screenWidth * 0.04, // Scaled font size
                 fontWeight: FontWeight.w600,

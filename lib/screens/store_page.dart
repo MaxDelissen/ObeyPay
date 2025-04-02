@@ -18,7 +18,7 @@ class StorePage extends StatelessWidget {
         children: [
           SizedBox(height: screenHeight * 0.25),
            Text(
-            '\$\$ amount: 50 000',
+            '\$\$ amount: 0,20',
             style: TextStyle(fontSize: 24, color: Colors.white),
           ),
           SizedBox(height: screenHeight * 0.065),
